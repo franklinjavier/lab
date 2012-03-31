@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Raw Javascript animation</title>
+    <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8"/>
+    
+</head>
+<body>
+
+    <hgroup>
+        <h1>Raw Javascript animation</h1>
+        <h2>by @franklinjavier</h2>
+    </hgroup>
+
+    <section>
+
+        <p>Example 1 - the element is visually moved by changing element.style.left from 0 to 100px</p>
+        <div id="example1" class="base">
+            <div class="airplane"></div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <p>Example 2 - the element is visually moved by changing element.style.left from 0 to 100px</p>
+        <div id="example2" class="base" onclick="move(this.children[0], function(p) {return p})">
+            <div class="airplane"></div>
+        </div>
+
+    </section>
+
+    <section>
+        <p>Example 3 - Textarea</p>
+        <textarea id="example3" rows="" cols="80">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt blandit consectetur.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt blandit consectetur.</textarea>
+        <input type="button" id="easeInOut" value="easeInOut" />
+        <input type="button" id="easeOut" value="easeOut" />
+    </section>
+    
+    
+    <script src="delta.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script.js" type="text/javascript" charset="utf-8"></script>
+	
+</body>
+</html>

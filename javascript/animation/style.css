@@ -1,0 +1,26 @@
+body {
+    color: #777;
+    font-family: Arial;
+}
+section {
+    margin: 20px 0;
+}
+.base {
+	position: relative;
+	overflow: hidden;
+	width: 500px;
+	height: 30px;
+	border-bottom: 1px dashed #999;
+}
+
+.base .airplane {
+	position: absolute;
+	background: url(airplane.png);
+	width: 30px;
+	height: 20px;
+	padding-top: 10px;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	white-space: nowrap;
+}
