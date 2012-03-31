@@ -14,8 +14,29 @@ section {
 }
 
 .base .airplane {
+    cursor: pointer;
 	position: absolute;
 	background: url(airplane.png);
+	width: 30px;
+	height: 20px;
+	padding-top: 10px;
+	text-align: center;
+	color: #fff;
+	font-size: 10px;
+	white-space: nowrap;
+}
+
+.base-ball {
+	position: relative;
+	overflow: hidden;
+	width: 500px;
+	height: 300px;
+	border-bottom: 1px dashed #999;
+}
+.base-ball .ball {
+    cursor: pointer;
+	position: absolute;
+	background: url(ball.png);
 	width: 30px;
 	height: 20px;
 	padding-top: 10px;

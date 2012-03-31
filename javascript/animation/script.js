@@ -17,10 +17,14 @@
             };
 
             document.getElementById('easeInOut').onclick = function( evt ) {
-                example3(evt.target.value);
+                example3( evt.target.value );
             };
             document.getElementById('easeOut').onclick = function( evt ) {
-                example3(evt.target.value);
+                example3( evt.target.value );
+            };
+
+            document.getElementById('example4').onclick = function( evt ) {
+                example4( evt );
             };
             
         }
@@ -50,9 +54,9 @@
         // Example 1 --------------------------------------------------------
         function example1( evt ) {
 
-            if ( evt.target.children.length ) { // not allow click in airplane
+            if ( evt.target.className === 'airplane' ) { 
 
-                var element = evt.target.firstElementChild,
+                var element = evt.target,
                     left = 0;
 
                 function frame() {
@@ -69,10 +73,10 @@
         // Example 2 --------------------------------------------------------
         function example2( evt ) {
 
-            if ( evt.target.children.length ) { // not allow click in airplane
+            if (  evt.target.className === 'airplane' ) {
 
-                var element = evt.target.firstElementChild,
-                    to = evt.target.clientWidth - element.clientWidth;
+                var element = evt.target,
+                    to = evt.target.parentNode.clientWidth - element.clientWidth;
 
                 animate({
                     delay: 10,
@@ -85,6 +89,7 @@
             }
         }
 
+        // Example 3 --------------------------------------------------------
         function example3( effect ) {
         
             var textarea = document.getElementById('example3'),
@@ -103,6 +108,25 @@
                     textarea.value = text.substr( 0, Math.ceil( result ) );
                 }
             });
+        }
+
+        // Example 4 --------------------------------------------------------
+        function example4( evt ) {
+
+            if ( evt.target.className === 'ball' ) { // not allow click in airplane
+                
+                var element = evt.target,
+                    to = element.parentNode.clientHeight - evt.target.clientHeight;
+
+                animate({
+                    delay: 10,
+                    duration: 2000, // 1 sec by default
+                    delta: makeEaseOut( bounce ),
+                    step: function( delta ) {
+                        element.style.top = to * delta + 'px'
+                    }
+                });
+            }
         }
 
         return {
