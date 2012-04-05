@@ -5,33 +5,54 @@
 	<title></title>
 	<link rel="stylesheet" href="assets/css/reset.css" type="text/css" media="screen" charset="utf-8">
 	<link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen" charset="utf-8">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
 </head>
 <body>
 
+    <header>
+        <hgroup>
+            <h1>Form simples e clean</h1>
+            <h2>
+                Baseado nessa 
+                <a href="http://freebies.wpcrown.com/2011/11/pink-log-in-form/" class="font" target="_blank">imagem 
+                    <img src="assets/img/form.png" alt="" class="font-img" />
+                </a>(http://freebies.wpcrown.com/2011/11/pink-log-in-form/)
+            </h2>
+        </hgroup>
+    </header>
 
-    <!-- form>fieldset>div>label+input -->
-    <form action="">
-    	<fieldset>
-    		<div>
-    			<label for="username">Username:</label>
-    			<input type="text" id="username" />
-    		</div>
+    <div id="wrapper">
 
-    		<div>
-    			<label for="password">Password:</label>
-    			<input type="text" id="password" />
-    		</div>
+        <form action="" method="">
+            <fieldset>
 
-            <footer>
-                <input type="checkbox" id="remember" />
-                <label for="remember">Remember me</label>
-                <div class="buttons">
-                    <input type="button" value="Signup" class="button" />
-                    <input type="submit" value="Login" class="button" />
+                <div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" class="text" />
                 </div>
-            </footer>
-    	</fieldset>
-    </form>
+
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" class="text" />
+                </div>
+
+                <footer>
+                    <div class="remember left">
+                        <input type="checkbox" id="remember" class="left" />
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <div class="right">
+                        <input type="submit" value="Login" class="button" />
+                        <input type="button" value="Signup" class="button" />
+                    </div>
+                </footer>
+            </fieldset>
+        </form>
+
+    </div>  
 	
 </body>
 </html>
