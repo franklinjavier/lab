@@ -2,92 +2,80 @@
 
     function init() {
 
-        $('#readFile').on( 'click', function( evt ) {
+        $('.readFile').on( 'click', function( evt ) {
             evt.preventDefault();
             evt.stopPropagation();
 
-            var url = 'data/bebe-mes-a-mes.js',
-                $result = $('#result');
+            var url = $(this).data('file'),
+                $result = $('#result'),
+                template = '';
+
+            $result.empty();
             
+            $.getJSON( url, function( result ) {
 
-            $.getJSON( url, function( result ){
+                // Se retornar um JSON invalido, interrompe aqui
+                if ( result === undefined || 
+                     ( typeof result !== 'object' && 
+                     ( typeof result === 'string' && $.trim(result).charAt(0) !== '{' )) ) { 
+                         return false;
+                } 
 
-                traverse( result.data.bebe, function( i, v ) {
-
-                    $.each(v, function( idx, val ) {
-                        if ( typeof val === 'object' ) {
-                            $. each( val, function( ii, vv ) {
-                                console.log(ii + ' - ' + vv);
-                            });
-                        }
-                        console.log(idx + ' - ' + val);
-                    });
-                    
-                
-                });
-                /*
-                var p = result.data;
-
-                for (var key in p ) {
-                    if (p.hasOwnProperty(key)) {
-                        console.log(key + " -> " + JSON.stringify(p[key]));
-                    }
+                // Se o retorno for do tipo string, converte para objeto JSON
+                if ( typeof result === 'string' ) {
+                    result = $.parseJSON( result );
                 }
-                */
 
-                /*
-                $.each( result.data, function( idx, val ) {
+                traverse( result.data, function( i, v ) {
 
-                    //if ( typeof idx === 'string' ) {
-                    //
-                        $.each( val, function( i, v ) {
+                    var template = '<div class="wrapper">';
 
-                            console.log(i, v);
-                            $.each(v, function( ii, vv ) {
+                    $.each( v, function( idx, val ) {
 
-                                console.log(ii, vv);
-                                
-                                if ( typeof vv === 'object' ) {
+                        if ( typeof val === 'object' ) {
 
-                                    $.each( vv, function( iii, vvv ) {
-                                        console.log(iii, vvv);
-                                        if ( typeof iii === 'string' )
-                                            $result.append( vvv ).append('<br />');
-                                        else 
-                                            $result.append( iii + 'YYY' + vvv ).append('<br />');
-                                    });
+                            $.each( val, function( ii, vv ) {
 
-                                } else if ( typeof vv === 'string' ) {
-
-                                    $result.append( vv ).append('<br />');
-
-                                }
-
+                                template += '<div class="box">' + 
+                                            '   <label>' + ii + '</label> <br />' +
+                                            '   <textarea>' + vv + '</textarea>' + 
+                                            '</div>';
                             });
-                        });
-                    //}
-                });
-                */
+
+                        } else {
+
+                            template += '<div class="box">' + 
+                                        '   <label>' + idx + '</label> <br />' +
+                                        '   <textarea>' + val + '</textarea>' + 
+                                        '</div>';
+                        }
+
+                    });
+
+                    template += '</div>';  // wrapper
+
+                    $result.append( template );
                 
+                });
+
             });
            
         });
         
     }
 
-//called with every property and it's value
-function process(key,value) {
-}
+    var traverse = function ( obj, callback ) {
 
-function traverse(o,func) {
-        for (i in o) {
-            func.apply(this,[i,o[i]]);  
-            if ( i !== [i,o[i]][0] && typeof(o[i]) == "object" ) {
-                //going on step down in the object tree!!
-                traverse(o[i], func);
+        for ( i in obj ) {
+
+            callback.apply( this, [i, obj[i]] );  
+
+            if ( i !== [i, obj[i]][0] && typeof obj[i] === "object" ) {
+                traverse( obj[i], callback );
             }
+
         }
-}
+    }
 
     init();
 

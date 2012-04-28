@@ -1,6 +1,5 @@
 {
-  "data": {
-    "bebe": [
+  "data": [
       {
         "month": "1°",
         "intro": "No final do primeiro mês, o bebê não enxerga além de 30 centímetros e, ainda assim, apenas sombras. O olfato é extremamente desenvolvido, sendo o sentido mais importante para reconhecer a própria mãe. Respondem a sons mais agudos e, desde o primeiro dia, reconhecem a voz da mãe.",
@@ -281,5 +280,4 @@
         }
       }
     ]
-  }
 }

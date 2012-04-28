@@ -1,0 +1,22 @@
+.wrapper {
+    background: #f0f0f0;
+    border: 1px solid silver;
+    border-radius: 4px;
+    float: left; 
+    margin: 20px 0;
+    width: 100%;
+}
+
+.wrapper > * { padding: 20px 10px; }
+.box {
+    float: left;
+}
+label {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+textarea {
+    width: 300px;
+    height: 100px;
+    font-size: 14px;
+}
