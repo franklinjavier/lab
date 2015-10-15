@@ -1,9 +1,11 @@
 # NodeJS : A quick optimization advice
-> https://top.fse.guru/nodejs-a-quick-optimization-advice-7353b820c92e
+> from: https://top.fse.guru/nodejs-a-quick-optimization-advice-7353b820c92e
 
-### node 0.12.7
+### Results in my machine
 
-#### with var
+##### node 0.12.7
+
+** with var **
 
 ``` 
 $ time node op1a.js && time node op1b.js 
@@ -13,8 +15,8 @@ node op1b.js  0,95s user 0,00s system 100% cpu 0,954 total
 
 ---
 
-### node 4.1.2
-#### with let
+##### node 4.1.2
+** with let **
 
 ``` 
 $ time node op1a.js && time node op1b.js
@@ -22,7 +24,7 @@ node op1a.js  0,57s user 0,00s system 100% cpu 0,571 total
 node op1b.js  1,49s user 0,01s system 100% cpu 1,494 total
 ```
 
-#### with var
+** with var **
 
 ``` 
 $ time node op1a.js && time node op1b.js 
