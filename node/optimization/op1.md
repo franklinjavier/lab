@@ -5,7 +5,7 @@
 
 ##### node 0.12.7
 
-** with var **
+**var**
 
 ``` 
 $ time node op1a.js && time node op1b.js 
@@ -16,7 +16,7 @@ node op1b.js  0,95s user 0,00s system 100% cpu 0,954 total
 ---
 
 ##### node 4.1.2
-** with let **
+**let**
 
 ``` 
 $ time node op1a.js && time node op1b.js
@@ -24,7 +24,7 @@ node op1a.js  0,57s user 0,00s system 100% cpu 0,571 total
 node op1b.js  1,49s user 0,01s system 100% cpu 1,494 total
 ```
 
-** with var **
+**var**
 
 ``` 
 $ time node op1a.js && time node op1b.js 
