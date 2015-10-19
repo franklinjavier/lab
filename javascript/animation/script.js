@@ -7,23 +7,28 @@
     var app = (function() {        
 
         function init() {
+            var example1 = document.getElementById('example1'),
+                example2 = document.getElementById('example2'),
+                easeInOut = document.getElementById('easeInOut'),
+                easeOut = document.getElementById('easeOut'),
+                example4 = document.getElementById('example4');
 
-            document.getElementById('example1').onclick = function( evt ){ 
+            example1.onclick = function( evt ){ 
                 example1( evt );
             };
 
-            document.getElementById('example2').onclick = function( evt ){ 
+            example2.onclick = function( evt ){ 
                 example2( evt );
             };
 
-            document.getElementById('easeInOut').onclick = function( evt ) {
+            easeInOut.onclick = function( evt ) {
                 example3( evt.target.value );
             };
-            document.getElementById('easeOut').onclick = function( evt ) {
+            easeOut.onclick = function( evt ) {
                 example3( evt.target.value );
             };
 
-            document.getElementById('example4').onclick = function( evt ) {
+            example4.onclick = function( evt ) {
                 example4( evt );
             };
             
@@ -35,9 +40,10 @@
 
             var id = setInterval( function() {
 
-                var timePassed = new Date() - start;
-                var progress = timePassed / opts.duration;
-                
+                var timePassed = new Date() - start,
+                    progress = timePassed / opts.duration;
+                    
+                // Se o progress é > 1 e é igual a 1? if ( progress >= 1 )...
                 if ( progress > 1 )
                     progress = 1;
 
@@ -83,7 +89,7 @@
                     duration: 1000, // 1 sec by default
                     delta: makeEaseOut( bounce ),
                     step: function( delta ) {
-                        element.style.left = to * delta + 'px'
+                        element.style.left = to * delta + 'px';
                     }
                 });
             }
@@ -93,7 +99,7 @@
         function example3( effect ) {
         
             var textarea = document.getElementById('example3'),
-                text = textarea.value,
+                textvalue = textarea.value,
                 to = text.length, 
                 from = 0;
 
@@ -105,7 +111,8 @@
                 delta: effect,
                 step: function( delta ) {
                     var result = ( to - from ) * delta + from;
-                    textarea.value = text.substr( 0, Math.ceil( result ) );
+                    // textvalue ? guardou mas não usou ?
+                    textvalue = text.substr( 0, Math.ceil( result ) );
                 }
             });
         }
@@ -123,7 +130,7 @@
                     duration: 2000, // 1 sec by default
                     delta: makeEaseOut( bounce ),
                     step: function( delta ) {
-                        element.style.top = to * delta + 'px'
+                        element.style.top = to * delta + 'px';
                     }
                 });
             }
@@ -133,7 +140,7 @@
             init : init
         };
 
-    })();
+    }());
 
     app.init();
 
